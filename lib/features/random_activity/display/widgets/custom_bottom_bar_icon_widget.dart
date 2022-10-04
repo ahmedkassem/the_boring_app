@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+class CustomBottomBarIconWidget extends StatelessWidget {
+  const CustomBottomBarIconWidget({
+    Key? key,
+    required this.callback,
+    required this.iconDataSelected,
+    required this.iconDataUnselected,
+    required this.isSelected,
+  }) : super(key: key);
+
+  final VoidCallback callback;
+
+  final bool isSelected;
+
+  final IconData iconDataSelected;
+
+  final IconData iconDataUnselected;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: IconButton(
+        onPressed: callback,
+        iconSize: isSelected ? 35 : 25,
+        icon: Icon(
+          isSelected ? iconDataSelected : iconDataUnselected,
+          color: isSelected ? Colors.orangeAccent : Colors.black87,
+        ),
+      ),
+    );
+  }
+}
